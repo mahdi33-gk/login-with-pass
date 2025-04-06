@@ -24,12 +24,12 @@ const Register = () => {
       <div>
         <form onSubmit={formHandler}>
           <fieldset className="fieldset w-3/5 mx-auto bg-base-200 border border-base-300 p-4 rounded-box">
-            <legend className="fieldset-legend text-2xl">Register Now!</legend>
+            <legend className="fieldset-legend text-3xl font-bold">Register Now!</legend>
 
-            <label className="fieldset-label font-bold">Email</label>
+            <label className="fieldset-label text-2xl font-bold">Email</label>
             <input type="email" name="email" className="input w-full" placeholder="Email" />
 
-            <label className="fieldset-label font-bold">Password</label>
+            <label className="fieldset-label text-2xl font-bold">Password</label>
             <input type="password" name="pass" className="input w-full" placeholder="Password" />
 
             <button className="btn btn-neutral mt-4 font-bold">Login</button>
