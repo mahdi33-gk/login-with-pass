@@ -1,10 +1,22 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import React from "react";
+import auth from "../firebase.init";
 
 const Register = () => {
     const formHandler = (e) =>{
         e.preventDefault()
+        const email = e.target.email.value;
+        const password = e.target.pass.value;
         console.log(e.target.email.value)
         console.log(e.target.pass.value)
+
+        createUserWithEmailAndPassword(auth,email,password)
+        .then(result=>{
+            console.log(result.user)
+        })
+        .catch(error=>{
+            console.log('found error!', error)
+        })
     }
   return (
     <div>
