@@ -2,10 +2,11 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import auth from "../firebase.init";
 import { IoEye } from "react-icons/io5";
+import { FaEyeSlash } from "react-icons/fa";
 
 const Signup = () => {
   const [err, setErr] = useState("");
-  
+  const [eye, setEye] = useState(false);
   
   const submitHandler = (e) => {
     e.preventDefault();
@@ -52,12 +53,15 @@ const Signup = () => {
             </label>
             <input
               name="pass"
-              type="password"
+              type={eye?'password':'text'}
               className="input w-full"
               placeholder="Password"
             />
-            <button className="btn btn-xs absolute top-[146px] right-8">
-            <IoEye />
+            <button
+            onClick={()=> setEye(!eye)} className="btn btn-xs absolute top-[146px] right-8">
+            
+            
+            {eye?<IoEye />:<FaEyeSlash />}
             </button>
             <button className="btn btn-neutral mt-4">Login</button>
           </fieldset>
