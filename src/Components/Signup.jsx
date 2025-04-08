@@ -7,22 +7,25 @@ import { FaEyeSlash } from "react-icons/fa";
 const Signup = () => {
   const [err, setErr] = useState("");
   const [eye, setEye] = useState(false);
-  
+
   const submitHandler = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.pass.value;
     console.log(email);
     console.log(password);
-    setErr('')
+    setErr("");
 
-    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-    if(!strongPasswordRegex.test(password)){
-      setErr('Please add atleast one UpperCase one LowerCase one number and special character.');
+    const strongPasswordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    if (!strongPasswordRegex.test(password)) {
+      setErr(
+        "Please add atleast one UpperCase one LowerCase one number and special character."
+      );
       return;
     }
-    if(password.length <6){
-      setErr('Password should be 6 character..')
+    if (password.length < 6) {
+      setErr("Password should be 6 character..");
       return;
     }
     // creat new user
@@ -53,18 +56,25 @@ const Signup = () => {
             </label>
             <input
               name="pass"
-              type={eye?'password':'text'}
+              type={eye ? "password" : "text"}
               className="input w-full"
               placeholder="Password"
             />
             <button
-            onClick={()=> setEye(!eye)} className="btn btn-xs absolute top-[146px] right-8">
-            
-            
-            {eye?<IoEye />:<FaEyeSlash />}
+              onClick={() => setEye(!eye)}
+              className="btn btn-xs absolute top-[146px] right-8"
+            >
+              {eye ? <IoEye /> : <FaEyeSlash />}
             </button>
+            <fieldset className="fieldset p-4 ">
+            <label className="fieldset-label">
+              <input type="checkbox" defaultChecked className="checkbox" />
+              Remember me
+            </label>
+          </fieldset>
             <button className="btn btn-neutral mt-4">Login</button>
           </fieldset>
+          
         </form>
         {err && <p className=" text-red-600">{err}</p>}
       </div>
