@@ -6,6 +6,7 @@ import { IoEye } from "react-icons/io5";
 const Signup = () => {
   const [err, setErr] = useState("");
   
+  
   const submitHandler = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -55,7 +56,7 @@ const Signup = () => {
               className="input w-full"
               placeholder="Password"
             />
-            <button className="btn btn-xs absolute">
+            <button className="btn btn-xs absolute top-[146px] right-8">
             <IoEye />
             </button>
             <button className="btn btn-neutral mt-4">Login</button>
