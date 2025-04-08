@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import auth from "../firebase.init";
+import { IoEye } from "react-icons/io5";
 
 const Signup = () => {
   const [err, setErr] = useState("");
@@ -37,7 +38,7 @@ const Signup = () => {
       <div className="card-body ">
         <h1 className="text-3xl font-bold">Sign Up now!</h1>
         <form onSubmit={submitHandler}>
-          <fieldset className="fieldset w-3/5 mx-auto  bg-base-200 p-4">
+          <fieldset className="fieldset w-3/5 mx-auto  bg-base-200 p-4 relative">
             <label className="fieldset-label text-2xl font-bold">Email</label>
             <input
               name="email"
@@ -54,6 +55,9 @@ const Signup = () => {
               className="input w-full"
               placeholder="Password"
             />
+            <button className="btn btn-xs absolute">
+            <IoEye />
+            </button>
             <button className="btn btn-neutral mt-4">Login</button>
           </fieldset>
         </form>
