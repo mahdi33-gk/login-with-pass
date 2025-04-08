@@ -13,7 +13,12 @@ const Signup = () => {
     console.log(password);
     setErr('')
 
-    if(password.length >6){
+    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    if(!strongPasswordRegex.test(password)){
+      setErr('Please add atleast one UpperCase one LowerCase one number and special character.');
+      return;
+    }
+    if(password.length <6){
       setErr('Password should be 6 character..')
       return;
     }
