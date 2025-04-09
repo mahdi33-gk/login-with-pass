@@ -12,9 +12,15 @@ const Signup = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.pass.value;
+    const terms = e.target.term.checked;
     console.log(email);
     console.log(password);
     setErr("");
+
+    if(!terms){
+      setErr('Please accept terms and conditions.');
+      return;
+    }
 
     const strongPasswordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
@@ -68,7 +74,7 @@ const Signup = () => {
             </button>
            
             <label className="fieldset-label">
-              <input type="checkbox" defaultChecked className="checkbox" />
+              <input name="term" type="checkbox" defaultChecked className="checkbox" />
               Accept our terms and conditions
             </label>
           
