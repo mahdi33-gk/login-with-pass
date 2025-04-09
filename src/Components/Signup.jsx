@@ -49,7 +49,7 @@ const Signup = () => {
       <div className="card-body ">
         <h1 className="text-3xl font-bold">Sign Up now!</h1>
         <form onSubmit={submitHandler}>
-          <fieldset className="fieldset w-3/5 mx-auto  bg-base-200 p-4 relative">
+          <fieldset className="fieldset w-3/5 mx-auto bg-base-200 p-4 relative">
             <label className="fieldset-label text-2xl font-bold">Email</label>
             <input
               name="email"
@@ -62,7 +62,7 @@ const Signup = () => {
             </label>
             <input
               name="pass"
-              type={eye ? "password" : "text"}
+              type={eye ? "password":"text"}
               className="input w-full"
               placeholder="Password"
             />
