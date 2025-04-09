@@ -66,12 +66,12 @@ const Signup = () => {
             >
               {eye ? <IoEye /> : <FaEyeSlash />}
             </button>
-            <fieldset className="fieldset p-4 ">
+           
             <label className="fieldset-label">
               <input type="checkbox" defaultChecked className="checkbox" />
               Accept our terms and conditions
             </label>
-          </fieldset>
+          
             <button className="btn btn-neutral mt-4">Login</button>
           </fieldset>
           
