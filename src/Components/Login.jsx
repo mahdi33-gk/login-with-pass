@@ -22,6 +22,9 @@ const Login = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         console.log(result.user);
+        if(!result.user.emailVerified){
+          setErr('Please verify your email address..')
+        }
       })
       sendEmailVerification(auth.currentUser)
       .then(result=>{
