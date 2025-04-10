@@ -15,6 +15,7 @@ const Login = () => {
       setErr("Please add one letter one number and one special charachter.");
       return;
     }
+    setErr('')
 
     // createEmailUser
     createUserWithEmailAndPassword(auth, email, password)
@@ -58,7 +59,7 @@ const Login = () => {
                     <a className="link link-hover">Forgot password?</a>
                   </div>
                   <button className="btn btn-neutral mt-4">Login</button>
-                  {err && <p>{err}</p>}
+                  {err && <p className="text-red-500">{err}</p>}
                 </fieldset>
               </form>
             </div>
