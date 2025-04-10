@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Login = () => {
+  const [err, setErr] = useState('');
   const summitHandler = (e) =>{
     e.preventDefault();
-    
+    const email = e.target.email.value;
+    const password = e.target.pass.value;
+
+    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+    if(!strongPasswordRegex.test(password)){
+      setErr('Please add one letter one number and one special charachter.')
+      return;
+    }
   }
   return (
     <div>
