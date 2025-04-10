@@ -1,9 +1,10 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import React, { useState } from "react";
 import auth from "../firebase.init";
 
 const Login = () => {
   const [err, setErr] = useState("");
+  const [verify,setVerify] = useState('');
   const summitHandler = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -21,6 +22,10 @@ const Login = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         console.log(result.user);
+      })
+      sendEmailVerification(auth.currentUser)
+      .then(result=>{
+        setVerify('verification msg sent!')
       })
       .catch((error) => {
         setErr("somethings not right.try again later.");
@@ -60,6 +65,7 @@ const Login = () => {
                   </div>
                   <button className="btn btn-neutral mt-4">Login</button>
                   {err && <p className="text-red-500">{err}</p>}
+                  {verify && <p className="text-green-700">{verify}</p>}
                 </fieldset>
               </form>
             </div>
