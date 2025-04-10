@@ -1,6 +1,10 @@
 import React from "react";
 
 const Login = () => {
+  const summitHandler = (e) =>{
+    e.preventDefault();
+    
+  }
   return (
     <div>
       <div className="hero  min-h-screen">
@@ -15,9 +19,10 @@ const Login = () => {
             <div className="card-body">
               <fieldset className="fieldset">
                 <label className="fieldset-label">Email</label>
-                <input type="email" className="input" placeholder="Email" />
+                <input name="email" type="email" className="input" placeholder="Email" />
                 <label className="fieldset-label">Password</label>
                 <input
+                  name="pass"
                   type="password"
                   className="input"
                   placeholder="Password"
